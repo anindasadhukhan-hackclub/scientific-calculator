@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scientific Calculator</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Scientific Calculator</h2>
+
+    <form method="post">
+
+        <input type="number" step="any" name="x" placeholder="X value">
+
+        <input type="number" step="any" name="y" placeholder="Y / Base value">
+
+        <input type="text" name="numbers" placeholder="Numbers (1,2,3 for stats)">
+
+        <select name="operation">
+            <optgroup label="Arithmetic">
+                <option value="add">Addition</option>
+                <option value="sub">Subtraction</option>
+                <option value="mul">Multiplication</option>
+                <option value="div">Division</option>
+                <option value="per">Percentage</option>
+                <option value="pow">Power</option>
+            </optgroup>
+
+            <optgroup label="Trigonometry">
+                <option value="sin">Sin</option>
+                <option value="cos">Cos</option>
+                <option value="tan">Tan</option>
+            </optgroup>
+
+            <optgroup label="Other">
+                <option value="sqrt">Square Root</option>
+                <option value="log">Logarithm</option>
+            </optgroup>
+
+            <optgroup label="Statistics">
+                <option value="mean">Mean</option>
+                <option value="median">Median</option>
+                <option value="mode">Mode</option>
+                <option value="max">Max</option>
+                <option value="min">Min</option>
+            </optgroup>
+        </select>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if result != "" %}
+        <div class="result">
+            Result: {{ result }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
